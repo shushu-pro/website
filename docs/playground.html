@@ -21,7 +21,7 @@
     const eleLink = document.createElement('a'); // 创建了一个a标签
     eleLink.download = data.filename || data.fileName; // 设置要下载的文件名
     eleLink.style.display = 'none'; // 设置a标签隐藏
-    // eleLink.target = '_blank';
+     eleLink.target = '_blank';
     eleLink.href = data.url; // 将数据生成一个路径
     // 触发点击
     document.body.appendChild(eleLink);
