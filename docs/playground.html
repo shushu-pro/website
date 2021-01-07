@@ -16,24 +16,7 @@
 
     <script>
         'use strict'
-      const url = 'http://oss-cn-hangzhou-zjzwy01-d01-a.cloud-inner.zj.gov.cn/gxwjcc/20201228/32127f53740e4c278b6a7d1c728adee4.xls?Expires=1609902623&OSSAccessKeyId=VXLjfCgZjlSsIYDS&Signature=LlG9AvZPvBIiSS7ZEKbXFQLMQIc%3D'
-
-       function download (data) {
-  if (data) {
-    const eleLink = document.createElement('a'); // 创建了一个a标签
-    eleLink.download = data.filename || data.fileName; // 设置要下载的文件名
-    eleLink.style.display = 'none'; // 设置a标签隐藏
-//      eleLink.target = '_blank';
-    eleLink.href = data.url; // 将数据生成一个路径
-    // 触发点击
-    document.body.appendChild(eleLink);
-    eleLink.click();
-    // 然后移除
-    document.body.removeChild(eleLink);
-//      window.open(data.url, '_blank');
-  }
-}
-
+  
 
     </script>
  <button onclick="download({url, filename:'xxx'})">按钮</button>
