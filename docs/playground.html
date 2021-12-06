@@ -31,11 +31,11 @@
  <script>
 let currentScale = 1
  function changeScale(scale){
-	ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);
+	
 	ctx.scale(1/currentScale,1/currentScale)
 	 currentScale = scale
 	ctx.scale(scale,scale);
-	  
+	  ctx.drawImage(tulip,0,0);
 	  console.info(currentScale)
 
  }
