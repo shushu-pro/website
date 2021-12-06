@@ -19,11 +19,11 @@
 
     </script>
 
- <canvas id="canvas" style="border:1px solid #000">
+ <canvas id="canvas" style="border:1px solid #000;">
  
  
  </canvas>
- 
+ <img id="tulip" src="https://www.w3school.com.cn/i/eg_tulip.jpg" style="wdith:1px ;height:1px"/>
 
   <button onclick="changeScale(1)">1倍</button>
    <button onclick="changeScale(2)">2倍</button>
@@ -31,7 +31,7 @@
  <script>
 let currentScale = 1
  function changeScale(scale){
-	ctx.clearRect(0,0,1000,1000);
+	ctx.clearRect(0,0,canvas.clientWidth,canvas.clientHeight);
 	ctx.scale(1/currentScale,1/currentScale)
 	 currentScale = scale
 	ctx.scale(scale,scale);
@@ -39,7 +39,8 @@ let currentScale = 1
 	  console.info(currentScale)
 
  }
- 
+  
+ var tulip=document.getElementById("tulip");
  
  var canvas = document.getElementById('canvas')
  
@@ -48,14 +49,17 @@ let currentScale = 1
  ctx = box.getContext('2d')
  
 
+ 
+
 
  
 
 box.addEventListener("touchstart",function(e){
     console.log("touchstart", e);
+	ctx.drawImage(tulip,0,0);
 	ctx.fillText("Hello shushu!",10,10);
 	ctx.rect(e.touches[0].clientX/currentScale , e.touches[0].clientY/currentScale, 10/currentScale, 10/currentScale);
-	ctx.fillStyle="green";
+	ctx.fillStyle="red";
 	ctx.fill();
 	
 
