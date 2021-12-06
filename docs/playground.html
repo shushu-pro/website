@@ -31,10 +31,10 @@
  <script>
 let currentScale = 1
  function changeScale(scale){
-	
-	 ctx.scale(1/currentScale,1/currentScale)
+	ctx.clearRect(0,0,1000,1000);
+	ctx.scale(1/currentScale,1/currentScale)
 	 currentScale = scale
-	  ctx.scale(currentScale, currentScale)
+	ctx.scale(scale,scale);
 	  
 	  console.info(currentScale)
 
@@ -46,12 +46,14 @@ let currentScale = 1
  var box = document.querySelector("#canvas");
  
  ctx = box.getContext('2d')
+ 
+
 
  
 
 box.addEventListener("touchstart",function(e){
     console.log("touchstart", e);
-	
+	ctx.fillText("Hello shushu!",10,10);
 	ctx.rect(e.touches[0].clientX/currentScale , e.touches[0].clientY/currentScale, 10/currentScale, 10/currentScale);
 	ctx.fillStyle="green";
 	ctx.fill();
