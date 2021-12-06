@@ -18,23 +18,49 @@
   
 
     </script>
+<div style="posotion:relatvie; width:200px;height:200px;overflow:hidden;border:1px solid #000;">
+ <canvas width="200" height="200" id="canvas" style=" position:relative;width:200px;height:200px;left:0;top:0"> </canvas>
+</div>
 
- <canvas id="canvas" style="border:1px solid #000;">
  
  
- </canvas>
+
  <img id="tulip" src="https://www.w3school.com.cn/i/eg_tulip.jpg" style="wdith:1px ;height:1px"/>
 
+
+<div style="position:fixed;top:200px">
   <button onclick="changeScale(1)">1倍</button>
    <button onclick="changeScale(2)">2倍</button>
    <button onclick="changeScale(3)">3倍</button>
+	<button onclick="moveLeft()">左移</button>
+	<button onclick="moveRight()">右移</button>
+</div>
+
+
  <script>
 let currentScale = 1
- function changeScale(scale){
+function changeScale(scale){
+	canvas.style.zoom=currentScale=scale
+}
+left =0;
+function moveLeft(){
+left-=2
+canvas.style.left=left+'px'
+}
+function moveRight(){
+left+=2
+canvas.style.left=left+'px'
+}
+
+ function changeScale2(scale){
 	
 	ctx.scale(1/currentScale,1/currentScale)
 	 currentScale = scale
 	ctx.scale(scale,scale);
+	
+	
+	
+	
 	  ctx.drawImage(tulip,0,0);
 	  console.info(currentScale)
 
@@ -58,7 +84,7 @@ box.addEventListener("touchstart",function(e){
     console.log("touchstart", e);
 	ctx.drawImage(tulip,0,0);
 	ctx.fillText("Hello shushu!",10,10);
-	ctx.rect(e.touches[0].clientX/currentScale , e.touches[0].clientY/currentScale, 10/currentScale, 10/currentScale);
+	ctx.rect(e.touches[0].clientX/currentScale - left , e.touches[0].clientY/currentScale, 10, 10);
 	ctx.fillStyle="red";
 	ctx.fill();
 	
